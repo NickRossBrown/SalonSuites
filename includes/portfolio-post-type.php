@@ -32,11 +32,13 @@ function _themename__pluginname_setup_post_type() {
 
     $args = array(
         'labels' => $labels,
+        'show_in_rest' => true,
         'public' => true,
         'has_archive' => true,
         'menu_icon' => 'dashicons-format-gallery',
         'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
-        'rewrite' => array('slug' => 'portfolio')
+        'rewrite' => array('slug' => 'portfolio'),
+        'supports'  => array('title', 'custom-fields', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
     );
     register_post_type('_themename_portfolio', $args);
 }

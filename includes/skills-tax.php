@@ -15,9 +15,13 @@ function _themename__pluginname_register_skills_tax() {
 	];
     $args = [
 		'hierarchical'      => false,
+		'show_in_rest' => true,
 		'labels'            => $labels,
 		'show_admin_column' => true,
 		'rewrite'           => ['slug' => 'skills'],
+		'has_archive'				=> true,
+		'menu_position'			=> 2,
+		'supports'           => array( 'title', 'custom-fields', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
     ];
 	register_taxonomy('_themename_skills', ['_themename_portfolio'], $args);
 }

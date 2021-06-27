@@ -1,39 +1,35 @@
 <?php
 /*
-Plugin Name:  _themename _pluginname
+Plugin Name:  Hollys_custom_suite_plugin
 Plugin URI:   
-Description:  Adding Custom Post Types for _themename
+Description:  Adding Custom Suite Post Types
 Version:      1.0.0
-Author:       Ali Alaa
-Author URI:   http://alialaa.com/
+Author:       Nick Brown
+Author URI:   http://nickrossbrown.com
 License:      GPL2
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain:  _themename-_pluginname
+Text Domain:  Hollys_custom_suite_plugin
 Domain Path:  /languages
 */
 
-if( !defined('WPINC')) {
+if (!defined('WPINC')) {
     die;
 }
 
-include_once('includes/portfolio-post-type.php');
-include_once('includes/project-type-tax.php');
-include_once('includes/skills-tax.php');
+include_once('includes/suite-post-type.php');
 
-function _themename__pluginname_activate() {
-    _themename__pluginname_setup_post_type();
-    _themename__pluginname_register_project_type_tax();
-    _themename__pluginname_register_skills_tax();
+function suite_custom_post_activate()
+{
+    suite_custom_post_activate();
     flush_rewrite_rules();
 }
 
-register_activation_hook(__FILE__, '_themename__pluginname_activate');
+register_activation_hook(__FILE__, 'Hollys_custom_suite_plugin_activate');
 
-function _themename__pluginname_deactivate() {
-    unregister_post_type('_themename_portfolio');
-    unregister_taxonomy('_themename_project_type');
-    unregister_taxonomy('_themename_skills');
+function Hollys_custom_suite_plugin_deactivate()
+{
+    unregister_post_type('suite_custom_post');
     flush_rewrite_rules();
 }
 
-register_deactivation_hook(__FILE__, '_themename__pluginname_deactivate');
+register_deactivation_hook(__FILE__, 'Hollys_custom_suite_plugin_deactivate');
